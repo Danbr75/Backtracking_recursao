@@ -15,17 +15,17 @@ linhas = len(tabuleiro)
 colunas = len(tabuleiro[0])
 
 def encontrar_inicio():
-    for linha in range(linhas):
-        for coluna in range(colunas):
-            if tabuleiro[linha][coluna] == 'I':
-                return linha, coluna
+    for i in range(linhas):   #percorrer todo o tabuleiro pra encontrar a letra "I" inicio) pra iniciar
+        for j in range(colunas):
+            if tabuleiro[i][j] == 'I':
+                return i, j
     return None
 
-def posicao_valida(linha, coluna, visitado):
-    return (0 <= linha < linhas and
-            0 <= coluna < colunas and
+def posicao_valida(linha, coluna, visitado):   #evita que o algoritmo tente ir pra fora do mapa ou fique preso em looping
+    return (0 <= linha < linhas and            #pedi pra IA deixar o código mais limpo e ela fez uma comparação encadeada
+            0 <= coluna < colunas and  #poderia ser escrita assim: (0 <= linha) and (linha < linhas)
             tabuleiro[linha][coluna] != 'X' and
-            not visitado[linha][coluna])
+            not visitado[linha][coluna])  #se não diferente de x e não foi visitado, é true, vai seguir o caminho
 
 def encontrar_caminho_mais_curto(inicio):
     fila = deque()
