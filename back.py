@@ -25,13 +25,13 @@ def posicao_valida(linha, coluna, visitado):   #evita que o algoritmo tente ir p
     return (0 <= linha < linhas and            #pedi pra IA deixar o código mais limpo e ela fez uma comparação encadeada
             0 <= coluna < colunas and  #poderia ser escrita assim: (0 <= linha) and (linha < linhas)
             tabuleiro[linha][coluna] != 'X' and
-            not visitado[linha][coluna])  #se não diferente de x e não foi visitado, é true, vai seguir o caminho
+            not visitado[linha][coluna])  #se for diferente de x e não foi visitado, é true, vai seguir o caminho
 
-def encontrar_caminho_mais_curto(inicio):
-    fila = deque()
-    fila.append((inicio, [inicio]))
-    visitado = [[False for _ in range(colunas)] for _ in range(linhas)]
-    visitado[inicio[0]][inicio[1]] = True
+def encontrar_caminho_mais_curto(inicio):  #Aqui pedi ajuda da IA. Esse deque foi importado da biblioteca collections
+    fila = deque()                        #é como uma lista superturbinada, otimizada pra adicionar e remover elementos rapidamente.
+    fila.append((inicio, [inicio]))        #Isso é uma lista com uma única posição, que representa o caminho percorrido até agora. [0,0] 
+    visitado = [[False for _ in range(colunas)] for _ in range(linhas)]  #lista com elementoss false
+    visitado[inicio[0]][inicio[1]] = True  #marcando como "visitada" a posição inicial do tabuleiro a frente da letra "I"
 
     while fila:
         (linha, coluna), caminho = fila.popleft()
