@@ -1,4 +1,4 @@
-# Jogo do Labirinto - Caminho mais curto com Busca em Largura (BFS)
+# Caminho mais curto com Busca em Largura (BFS)
 
 Este projeto é um pequeno programa em Python que encontra o **caminho mais curto** entre um ponto inicial (`I`) e um ponto final (`F`) dentro de um tabuleiro com obstáculos (`X`), utilizando o algoritmo **BFS (Busca em Largura)**. O código ainda mostra uma animação simples do percurso no terminal, passo a passo.
 
